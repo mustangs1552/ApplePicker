@@ -1,26 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AppleTree : MonoBehaviour {
-
-    #region Variables
+public class AppleTree : MonoBehaviour
+{    
     public GameObject applePrefab = null;
     public float speed = 1f;
     public float leftAndRightEdge = 10f;
     [Range (0, 1)]
     public float chanceToChangeDirections = .1f;
     public float secondsBetweenAppleDrops = 1f;
-    #endregion
-
-    #region CustomFunctions
+    
     void DropApple()
     {
         GameObject apple = Instantiate(applePrefab) as GameObject;
         apple.transform.position = transform.position;
     }
-    #endregion
-
-    #region Start_Update
+    
     // Use this for initialization
     void Start ()
     {
@@ -44,5 +39,4 @@ public class AppleTree : MonoBehaviour {
     {
         if (Random.value < chanceToChangeDirections) speed *= -1;
     }
-    #endregion
 }

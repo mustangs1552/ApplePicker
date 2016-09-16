@@ -83,6 +83,12 @@ public class HighScore : MonoBehaviour
         gt.text = "High Score: " + score;
 
         if (score > PlayerPrefs.GetInt("ApplePickerHighScore")) PlayerPrefs.SetInt("ApplePickerHighScore", score);
+
+        if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.R))
+        {
+            score = 1000;
+            PlayerPrefs.SetInt("ApplePickerHighScore", score);
+        }
     }
     // LateUpdate is called every frame after all other update functions, if the Behaviour is enabled.
     void LateUpdate()
